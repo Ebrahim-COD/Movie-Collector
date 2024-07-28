@@ -1,4 +1,4 @@
-# FakeFlix
+# Movie Collector
 
 ### User Stories:
 
