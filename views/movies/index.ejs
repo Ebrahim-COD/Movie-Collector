@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Movies List</title>
-</head>
-<body>
-    <h1>My Movie Collection</h1>
+  </head>
+  <body>
+    <a href="/auth/sign-out">Sign-Out</a>
     <a href="/users/<%= user._id %>/movies/new">Add New Movies</a>
+    <h1>My Movie Collection</h1>
 
-    <ul>
-        <% movies.forEach(movie => { %>
-            <li>
-                <a href="/users/<%= user._id %>/movies/<%= movie._id %>"><%= movie.title %></a>
-            </li>
-        <%})%>
-    </ul>
-</body>
+      <% movies.forEach(movie => { %>
+        <p><strong>Movie :</strong><a href="/users/<%= user._id %>/movies/<%= movie._id %>"
+          ><%= movie.title %></a></p>
+      <%})%>
+  </body>
 </html>

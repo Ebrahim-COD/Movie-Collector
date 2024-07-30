@@ -41,7 +41,6 @@ const userSchema = new mongoose.Schema(
     role: {
       type: String,
       enum: ["admin", "user"],
-      required: [true, "Please provide a role"],
       default: "user",
     },
     movies: [movieSchema], // Embedding

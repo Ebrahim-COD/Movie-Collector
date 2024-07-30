@@ -6,6 +6,8 @@
     <title>Sign-up page</title>
   </head>
   <body>
+    <a href="/">Home Page</a>
+    <a href="/auth/Sign-in"></a>
     <form action="/auth/sign-up" method="POST">
       <h1>Sign-up</h1>
       <label for="username">Username</label>
@@ -21,12 +23,6 @@
         id="confirmPassword"
         required
       />
-      <br />
-      <label for="role">Role</label>
-      <select name="role" id="role" required>
-        <option value="user">User</option>
-        <option value="admin">Admin</option>
-      </select>
       <br />
       <button>Sign-up</button>
     </form>

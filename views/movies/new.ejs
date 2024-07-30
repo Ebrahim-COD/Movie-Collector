@@ -6,23 +6,43 @@
     <title>Adding Movies</title>
   </head>
   <body>
+    <a href="/users/:user_id/movies">Home</a>
+    <a href="/auth/sign-out">Sign-Out</a>
     <form action="/users/<%= user._id %>/movies" method="POST">
       <h1>Add Movie:</h1>
 
       <label for="title">Title: </label>
-      <input type="text" name="title" id="title" placeholder="Title" required/>
+      <input type="text" name="title" id="title" placeholder="Title" required />
       <br />
 
       <label for="director">Director: </label>
-      <input type="text" name="director" id="director" placeholder="Director" required/>
+      <input
+        type="text"
+        name="director"
+        id="director"
+        placeholder="Director"
+        required
+      />
       <br />
 
       <label for="genre">Genre: </label>
-      <input type="text" name="genre" id="genre" placeholder="Genre" required/>
+      <select name="genre" id="genre" required>
+        <option value="">Select Genre</option>
+        <option value="Action">Action</option>
+        <option value="Comedy">Comedy</option>
+        <option value="Drama">Drama</option>
+        <option value="Horror">Horror</option>
+        <option value="Romance">Romance</option>
+        <option value="Sci-Fi">Sci-Fi</option>
+        <option value="Thriller">Thriller</option>
+        <option value="Fantasy">Fantasy</option>
+        <option value="Crime">Crime</option>
+        <option value="Other">Other</option>
+      </select>
       <br />
 
       <label for="year">Year: </label>
-      <input type="number" name="year" id="year" placeholder="Year" required/>
+      <input type="number" name="year" id="year" placeholder="Year" required />
       <br />
 
       <label for="watched">Watched: </label>
@@ -31,5 +51,3 @@
 
       <button>Add</button>
     </form>
-  </body>
-</html>

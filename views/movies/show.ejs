@@ -1,23 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= movie.title %></title>
-</head>
-<body>
+  </head>
+  <body>
+    <a href="/users/:user_id/movies">Home</a>
+    <a href="/auth/sign-out">Sign-Out</a>
     <h1>Movie Details:</h1>
     <p>Title: <%= movie.title%></p>
     <p>Director: <%= movie.director%></p>
     <p>Genre: <%= movie.genre%></p>
     <p>Release year: <%= movie.year%></p>
     <p>Watched: <%= movie.watched ? 'Yes' : 'No' %></p>
-    <!-- <a href="/users/<%= user._id %>/movies/<%= movie._id %>/edit">Edit</a> -->
-    <form action="/users/<%= user._id %>/movies/<%= movie._id %>?_method=DELETE" method="POST">
-        <button type="button" onclick="location.href='/users/<%= user._id %>/movies/<%= movie._id %>/edit'">
-            Edit
-        </button>
-        <button type="submit">Delete</button>
+    <form
+      action="/users/<%= user._id %>/movies/<%= movie._id %>?_method=DELETE"
+      method="POST"
+    >
+      <button
+        type="button"
+        onclick="location.href='/users/<%= user._id %>/movies/<%= movie._id %>/edit'"
+      >
+        Edit
+      </button>
+      <button type="submit">Delete</button>
     </form>
-</body>
+  </body>
 </html>

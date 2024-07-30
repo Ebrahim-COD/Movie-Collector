@@ -9,6 +9,7 @@ const morgan = require("morgan");
 require("./config/database");
 const isSignedIn = require("./middleware/is-signed-in");
 const passUserToView = require("./middleware/pass-user-to-view");
+const isAdmin = require("./middleware/is-admin");
 // Set the port from environment variable or default to 3000
 const port = process.env.PORT ? process.env.PORT : "7000";
 
@@ -30,16 +31,20 @@ app.use(passUserToView);
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
-  if(req.session.user) {
-    res.redirect(`/users/${req.session.user._id}/movies`);
+  if (req.session.user) {
+    if (req.session.user.role === "admin") {
+      res.redirect("/admin");
+    } else {
+      res.redirect(`/users/${req.session.user._id}/movies`);
+    }
   } else {
     res.render("index.ejs");
   }
 });
 
 app.use("/auth", require("./routes/UserRoutes"));
-app.use("/users/:userId/movies", isSignedIn, require("./routes/MovieRoutes"));  
-
+app.use("/users/:userId/movies", isSignedIn, require("./routes/MovieRoutes"));
+app.use("/admin", isAdmin, require("./routes/AdminRoutes"));
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);
