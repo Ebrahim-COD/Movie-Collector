@@ -1,59 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Editing <%= movie.title %></title>
-  </head>
-  <body>
-    <a href="/users/:user_id/movies">Home</a>
-    <a href="/users/<%= user._id %>/movies/<%= movie._id %>/">Movie Detail</a>
-    <a href="/auth/sign-out">Sign-Out</a>
-    <form
-      action="/users/<%= user._id %>/movies/<%= movie._id %>?_method=PUT"
-      method="POST"
-    >
-      <h2>Update movie: <%= movie.title %></h2>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Editing <%= movie.title %></title>
+  <link rel="stylesheet" href="/stylesheet/style.css" />
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <a href="/users/<%= user._id %>/movies" class="button">Home</a>
+      <a href="/users/<%= user._id %>/movies/<%= movie._id %>/" class="button">Movie Detail</a>
+      <a href="/auth/sign-out" class="button">Sign-Out</a>
+    </nav>
+    <header>
+      <h2>Update Movie</h2>
+    </header>
+    <main>
+      <form action="/users/<%= user._id %>/movies/<%= movie._id %>?_method=PUT" method="POST">
+        <label for="title">Title: </label>
+        <input type="text" name="title" id="title" placeholder="Title" required value="<%= movie.title %>"/>
+        <br />
 
-      <label for="title">Title: </label>
-      <input type="text" name="title" id="title" placeholder="Title" required />
-      <br />
+        <label for="director">Director: </label>
+        <input type="text" name="director" id="director" placeholder="Director" required value="<%= movie.director %>"/>
+        <br />
 
-      <label for="director">Director: </label>
-      <input
-        type="text"
-        name="director"
-        id="director"
-        placeholder="Director"
-        required
-      />
-      <br />
+        <label for="genre">Genre: </label>
+        <select name="genre" id="genre" required>
+          <option value="">Select Genre</option>
+          <option value="Action" <%= movie.genre === 'Action' ? 'selected' : '' %>>Action</option>
+          <option value="Comedy" <%= movie.genre === 'Comedy' ? 'selected' : '' %>>Comedy</option>
+          <option value="Drama" <%= movie.genre === 'Drama' ? 'selected' : '' %>>Drama</option>
+          <option value="Horror" <%= movie.genre === 'Horror' ? 'selected' : '' %>>Horror</option>
+          <option value="Romance" <%= movie.genre === 'Romance' ? 'selected' : '' %>>Romance</option>
+          <option value="Sci-Fi" <%= movie.genre === 'Sci-Fi' ? 'selected' : '' %>>Sci-Fi</option>
+          <option value="Thriller" <%= movie.genre === 'Thriller' ? 'selected' : '' %>>Thriller</option>
+          <option value="Fantasy" <%= movie.genre === 'Fantasy' ? 'selected' : '' %>>Fantasy</option>
+          <option value="Crime" <%= movie.genre === 'Crime' ? 'selected' : '' %>>Crime</option>
+          <option value="Other" <%= movie.genre === 'Other' ? 'selected' : '' %>>Other</option>
+        </select>
+        <br />
 
-      <label for="genre">Genre: </label>
-      <select name="genre" id="genre" required>
-        <option value="">Select Genre</option>
-        <option value="Action">Action</option>
-        <option value="Comedy">Comedy</option>
-        <option value="Drama">Drama</option>
-        <option value="Horror">Horror</option>
-        <option value="Romance">Romance</option>
-        <option value="Sci-Fi">Sci-Fi</option>
-        <option value="Thriller">Thriller</option>
-        <option value="Fantasy">Fantasy</option>
-        <option value="Crime">Crime</option>
-        <option value="Other">Other</option>
-      </select>
-      <br />
+        <label for="year">Year: </label>
+        <input type="number" name="year" id="year" placeholder="Year" required value="<%= movie.year %>"/>
+        <br />
 
-      <label for="year">Year: </label>
-      <input type="number" name="year" id="year" placeholder="Year" required />
-      <br />
+        <label for="watched">Watched: </label>
+        <input type="checkbox" name="watched" id="watched" <%= movie.watched ? 'checked' : '' %> />
+        <br />
 
-      <label for="watched">Watched: </label>
-      <input type="checkbox" name="watched" id="watched" />
-      <br />
-
-      <button>Update</button>
-    </form>
-  </body>
+        <button class="button">Update</button>
+      </form>
+    </main>
+  </div>
+</body>
 </html>
+

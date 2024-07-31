@@ -4,23 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Users Information</title>
+    <link rel="stylesheet" href="/stylesheet/adminstyle.css" />
   </head>
   <body>
-    <a href="/admin">Dashboard</a>
-    <a href="/auth/sign-out">Sign-Out</a>
-    <form action="/admin/<%= user._id %>?_method=DELETE" method="POST">
-    <h1><%= user.username %>'s Movies</h1>
-    <button type="submit">Delete User</button>
-
-    <% user.movies.forEach(movie => { %>
-    <h2><%= movie.title %></h2>
-    <p><strong>Director:</strong> <%= movie.director %></p>
-    <p><strong>Genre:</strong> <%= movie.genre %></p>
-    <p><strong>Year:</strong> <%= movie.year %></p>
-    <p><strong>Watched:</strong> <%= movie.watched ? 'Yes' : 'No' %></p>
-    <% }); %> <% if (user.movies.length === 0) { %>
-    <p>No movies found for this user.</p>
-    <% } %>
-     </form>
+    <header>
+      <a href="/admin" class="button">Dashboard</a>
+      <a href="/auth/sign-out" class="button">Sign-Out</a>
+    </header>
+    <main>
+      <form action="/admin/<%= user._id %>?_method=DELETE" method="POST">
+        <h1><%= user.username %>'s Movies</h1>
+        <button type="submit">Delete User</button>
+        <% user.movies.forEach(movie => { %>
+          <h2><%= movie.title %></h2>
+          <p><strong>Director:</strong> <%= movie.director %></p>
+          <p><strong>Genre:</strong> <%= movie.genre %></p>
+          <p><strong>Year:</strong> <%= movie.year %></p>
+          <p><strong>Watched:</strong> <%= movie.watched ? 'Yes' : 'No' %></p>
+        <% }); %>
+        <% if (user.movies.length === 0) { %>
+          <p>No movies found for this user.</p>
+        <% } %>
+      </form>
+    </main>
   </body>
 </html>

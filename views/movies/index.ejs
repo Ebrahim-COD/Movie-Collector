@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Movies List</title>
-  </head>
-  <body>
-    <a href="/auth/sign-out">Sign-Out</a>
-    <a href="/users/<%= user._id %>/movies/new">Add New Movies</a>
-    <h1>My Movie Collection</h1>
-
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Movies List</title>
+  <link rel="stylesheet" href="/stylesheet/style.css" />
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <a href="/auth/sign-out" class="button">Sign-Out</a>
+      <a href="/users/<%= user._id %>/movies/new" class="button">Add New Movies</a>
+    </nav>
+    <header>
+      <h1>My Movie Collection</h1>
+    </header>
+    <main>
       <% movies.forEach(movie => { %>
-        <p><strong>Movie :</strong><a href="/users/<%= user._id %>/movies/<%= movie._id %>"
-          ><%= movie.title %></a></p>
-      <%})%>
-  </body>
+        <p><strong>Movie :</strong> <a href="/users/<%= user._id %>/movies/<%= movie._id %>"><%= movie.title %></a></p>
+      <% }) %>
+    </main>
+  </div>
+</body>
 </html>
+
