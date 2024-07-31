@@ -51,5 +51,3 @@
 * HTML/CSS: Basic structure and styling.
 
 * JavaScript: logic and interactivity.
-
-* 
