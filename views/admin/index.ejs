@@ -4,28 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin Page</title>
-    <link rel="stylesheet" href="/stylesheet/adminstyle.css" />
+    <link rel="stylesheet" href="/stylesheet/admindashboard.css" />
   </head>
   <body>
     <header>
-      <a href="/auth/sign-out" class="button">Sign-Out</a>
       <h1>Admin Dashboard</h1>
+      <a href="/auth/sign-out" class="button sign-out">Sign-Out</a>
     </header>
     <main>
       <h2>Manage Users:</h2>
-      <ul>
-        <% users.forEach(user => { %>
-          <% if(user.username !== 'admin') { %>
-            <li>
-              <strong><a href="/admin/<%= user._id %>"><%= user.username %></a></strong>
-            </li>
-          <% } %>
-        <% }) %>
-        <% if(users.length === 0) { %>
-          <p>NO USERS FOUND!</p>
-        <% } %>
-      </ul>
+      <div class="user-list">
+        <% if (users.length === 0) { %>
+        <p class="no-users">No users found!</p>
+        <% } else { %> <% users.forEach(user => { %> <% if(user.username !==
+        'admin') { %>
+        <a href="/admin/<%= user._id %>" class="user-item">
+          <strong><%= user.username %></strong>
+        </a>
+        <% } %> <% }) %> <% } %>
+      </div>
     </main>
   </body>
 </html>
-

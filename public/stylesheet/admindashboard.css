@@ -1,0 +1,100 @@
+/* General styles for Admin pages */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: #e0e0e0;
+  }
+  
+  header {
+    background-color: #1f1f1f;
+    color: #e0e0e0;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #333;
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 1.5em;
+  }
+  
+  header a.button {
+    text-decoration: none;
+    color: #e0e0e0;
+    font-size: 1.1em;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #333;
+    border: 1px solid #444;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  header a.sign-out {
+    margin-left: auto;
+  }
+  
+  header a.button:hover {
+    background-color: #444;
+    color: #fff;
+    border: 1px solid #555;
+  }
+  
+  main {
+    padding: 20px;
+    background-color: #1f1f1f;
+    color: #e0e0e0;
+    border-radius: 8px;
+    max-width: 900px;
+    margin: 20px auto;
+  }
+  
+  .user-list {
+    margin-top: 20px;
+  }
+  
+  .user-item {
+    display: block;
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #333;
+    border-radius: 8px;
+    background-color: #2a2a2a;
+    text-decoration: none;
+    color: #e0e0e0;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .user-item:hover {
+    background-color: #333;
+    transform: scale(1.02);
+  }
+  
+  .user-item strong {
+    display: block;
+    font-size: 1.1em;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    header a.button {
+      margin-bottom: 10px;
+    }
+  
+    main {
+      padding: 15px;
+    }
+  
+    .user-item strong {
+      font-size: 1em;
+    }
+  }
+  

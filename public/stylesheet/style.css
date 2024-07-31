@@ -17,6 +17,60 @@ body {
   padding: 20px;
 }
 
+/* Specific styles for movie details page */
+.movie-details .container {
+  text-align: center;
+}
+
+.movie-details main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: left; /* Align text to left inside the centered container */
+}
+
+.movie-details form {
+  margin-top: 20px;
+}
+
+.movie-details button {
+  margin: 5px;
+}
+
+/* Specific styles for movie list page */
+.movie-list .container {
+  text-align: center; /* Center-aligns text for the movie list page */
+}
+
+.movie-list .movie-item {
+  display: block;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #1f1f1f;
+  border: 1px solid #333;
+  border-radius: 5px;
+  color: #e0e0e0;
+  text-decoration: none;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.movie-list .movie-item:hover {
+  background-color: #3d3d3d;
+  border-color: #555;
+}
+
+.movie-list .movie-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.movie-list .watched-status {
+  font-size: 1em;
+  color: #bbb;
+}
+
 .nav {
   display: flex;
   justify-content: center;

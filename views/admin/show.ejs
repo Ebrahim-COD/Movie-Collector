@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Users Information</title>
+    <title><%= user.username %>'s Movies</title>
     <link rel="stylesheet" href="/stylesheet/adminstyle.css" />
   </head>
   <body>
@@ -12,20 +12,42 @@
       <a href="/auth/sign-out" class="button">Sign-Out</a>
     </header>
     <main>
-      <form action="/admin/<%= user._id %>?_method=DELETE" method="POST">
+      <section class="user-details">
         <h1><%= user.username %>'s Movies</h1>
-        <button type="submit">Delete User</button>
+        <form
+          action="/admin/<%= user._id %>?_method=DELETE"
+          method="POST"
+          class="delete-user-form"
+        >
+          <button type="submit" class="delete-user-button">Delete User</button>
+        </form>
+      </section>
+
+      <% if (user.movies.length === 0) { %>
+      <p class="no-movies">No movies found for this user.</p>
+      <% } else { %>
+      <section class="movie-list">
         <% user.movies.forEach(movie => { %>
+        <div class="movie-item">
           <h2><%= movie.title %></h2>
           <p><strong>Director:</strong> <%= movie.director %></p>
           <p><strong>Genre:</strong> <%= movie.genre %></p>
           <p><strong>Year:</strong> <%= movie.year %></p>
           <p><strong>Watched:</strong> <%= movie.watched ? 'Yes' : 'No' %></p>
+          <div class="movie-actions">
+            <form
+              action="/admin/<%= user._id %>/movies/<%= movie._id %>?_method=DELETE"
+              method="POST"
+            >
+              <button type="submit" class="delete-movie-button">
+                Delete Movie
+              </button>
+            </form>
+          </div>
+        </div>
         <% }); %>
-        <% if (user.movies.length === 0) { %>
-          <p>No movies found for this user.</p>
-        <% } %>
-      </form>
+      </section>
+      <% } %>
     </main>
   </body>
 </html>

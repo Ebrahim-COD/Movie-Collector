@@ -12,14 +12,13 @@ const getUsers = async (req, res) => {
 
 const showUser = async (req, res) => {
   try {
-    const user = await User.findById(req.params.id)
+    const user = await User.findById(req.params.id);
     res.render("admin/show.ejs", { user });
-  }
-  catch (error) {
+  } catch (error) {
     console.log(error);
     res.status(500).send("Error getting user");
   }
-}
+};
 
 const deleteUser = async (req, res) => {
   try {
@@ -31,8 +30,25 @@ const deleteUser = async (req, res) => {
   }
 };
 
+const deleteMovie = async (req, res) => {
+  try {
+    const { userId, movieId } = req.params;
+
+    // Update the user's movies array by pulling out the movie with the given ID
+    const result = await User.updateOne(
+      { _id: userId, "movies._id": movieId },
+      { $pull: { movies: { _id: movieId } } }
+    );
+    res.redirect(`/admin/${userId}`);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Error deleting movie");
+  }
+};
+
 module.exports = {
   getUsers,
   showUser,
   deleteUser,
+  deleteMovie,
 };

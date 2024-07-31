@@ -29,9 +29,9 @@
 #### Admin Management:
 
 1. Manage Users:
-    - As an admin, I want to view, add, edit, and delete user accounts.
+    - As an admin, I want to view and delete user accounts.
 2. Manage Movies:
-    - As an admin, I want to view, add, edit, and delete any movies in the system, not just those belonging to individual users.
+    - As an admin, I want to view and delete any user movies in the system.
 
 ### ER diagrams
 
@@ -39,8 +39,17 @@
 
 ### Wireframe
 
-![Landing page](image-3.png)
-![Sign up](image-4.png)
+![Landing Page](image-8.png)
+![Sign-up](image-9.png)
 ![Sign in and home page](image-5.png)
 ![add movie and movie details](image-6.png)
-![Movie dashboard](image-7.png)
+![Admin Dashboard](image-10.png)
+![Admin User Movies](image-11.png)
+
+### ***Technologies Used:***
+
+* HTML/CSS: Basic structure and styling.
+
+* JavaScript: logic and interactivity.
+
+* 
