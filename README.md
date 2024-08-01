@@ -101,6 +101,19 @@ Welcome to the Movie Collector application! This application allows users to man
 
 ### ***Screenshots***:
 
+![Landing page](image-13.png)
+![Sign-up page](image-14.png)
+![Sign-in page](image-15.png)
+![Home Page](image-16.png)
+![Home Page 2](image-17.png)
+![Adding Movies](image-18.png)
+![Show Movies](image-19.png)
+![Show Movies 2](image-20.png)
+![Update & Delete Movies](image-21.png)
+![Admin Dashboard](image-22.png)
+![Admin Show for delete user & their movies ](image-23.png)
+
+
 
 
 ### **_Technologies Used:_**
@@ -112,3 +125,17 @@ Welcome to the Movie Collector application! This application allows users to man
 - EJS: Templating engine for rendering HTML views.
 - bcrypt: Library for hashing passwords.
 - multer: Middleware for handling file uploads.
+
+### ***Future Updates***
+
+- Advanced Filtering and Sorting:
+
+  - "Adding more filtering and sorting options to help users manage their movie collections better."
+
+- Personalized Recommendations:
+
+  - "Implementing features to offer personalized movie recommendations based on user preferences."
+
+- Enhanced UI Design:
+
+  - "We plan to update the user interface to make it more modern and intuitive."
