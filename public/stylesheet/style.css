@@ -3,8 +3,11 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #121212;
-  color: #e0e0e0;
+  background-image: url('https://images.unsplash.com/photo-1478720568477-152d9b164e26?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-size: cover; /* Makes sure the image covers the entire background */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Ensures the image doesn’t repeat */
+  color: #e0e0e0; /* Text color */
 }
 
 .container {
@@ -12,63 +15,9 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  text-align: center;
   padding: 20px;
-}
-
-/* Specific styles for movie details page */
-.movie-details .container {
-  text-align: center;
-}
-
-.movie-details main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: left; /* Align text to left inside the centered container */
-}
-
-.movie-details form {
-  margin-top: 20px;
-}
-
-.movie-details button {
-  margin: 5px;
-}
-
-/* Specific styles for movie list page */
-.movie-list .container {
-  text-align: center; /* Center-aligns text for the movie list page */
-}
-
-.movie-list .movie-item {
-  display: block;
-  padding: 10px;
-  margin: 10px 0;
-  background-color: #1f1f1f;
-  border: 1px solid #333;
-  border-radius: 5px;
-  color: #e0e0e0;
-  text-decoration: none;
-  transition: background-color 0.3s, border-color 0.3s;
-}
-
-.movie-list .movie-item:hover {
-  background-color: #3d3d3d;
-  border-color: #555;
-}
-
-.movie-list .movie-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.movie-list .watched-status {
-  font-size: 1em;
-  color: #bbb;
+  background-color: rgba(30, 30, 30, 0.8); /* Semi-transparent background to improve readability */
+  border-radius: 10px;
 }
 
 .nav {
@@ -89,13 +38,13 @@ a {
 
 a.button {
   background-color: #1f1f1f;
-  border: 1px solid #333; /* Adds border for better definition */
+  border: 1px solid #333;
 }
 
 a.button:hover {
   background-color: #3d3d3d;
   color: #fff;
-  border: 1px solid #555; /* Adds border color on hover */
+  border: 1px solid #555;
 }
 
 header {
@@ -106,18 +55,35 @@ h1, h2 {
   font-size: 2.5em;
   color: #fff;
   margin-bottom: 10px;
-  font-weight: bold; /* Makes headers more prominent */
+  font-weight: bold;
 }
 
 p, label {
   font-size: 1.2em;
   color: #bbb;
-  margin: 10px 0; /* Adds margin to separate elements */
+  margin: 10px 0;
+}
+
+button {
+  background-color: #1f1f1f;
+  color: #e0e0e0;
+  font-size: 1.1em;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+  background-color: #3d3d3d;
+  transform: scale(1.05);
 }
 
 input[type="text"],
 input[type="number"],
-select {
+select,
+input[type="file"] {
   font-size: 1em;
   padding: 12px;
   margin-bottom: 15px;
@@ -134,25 +100,106 @@ input[type="checkbox"] {
   margin-bottom: 20px;
 }
 
-button {
-  background-color: #1f1f1f;
-  color: #e0e0e0;
-  font-size: 1.1em;
-  padding: 12px 25px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.3s;
-}
-
-button:hover {
-  background-color: #3d3d3d;
-  transform: scale(1.05); /* Slight scale effect on hover */
-}
-
 main {
-  max-width: 600px;
+  max-width: 1000px; /* Adjusted for better grid layout */
   width: 100%;
+}
+
+/* Movie List Page */
+.movie-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive grid layout */
+  gap: 20px;
+  padding: 20px;
+}
+
+.movie-list .movie-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  background-color: #1f1f1f;
+  border: 1px solid #333;
+  border-radius: 8px;
+  color: #e0e0e0;
+  text-decoration: none;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.movie-list .movie-item:hover {
+  background-color: #3d3d3d;
+  border-color: #555;
+}
+
+.movie-list .movie-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.movie-list .movie-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.movie-list .watched-status {
+  font-size: 0.9em;
+  color: #bbb;
+}
+
+/* Movie Details Page */
+.movie-details main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.movie-detail-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+  text-align: center;
+}
+
+.movie-detail-info {
+  margin: 20px 0;
+  font-size: 1.2em;
+  color: #bbb;
+}
+
+.movie-detail-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.movie-detail-form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* Form Styling */
+.movie-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: auto;
+  background-color: #1f1f1f;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.movie-form label {
+  margin-bottom: 5px;
+  font-weight: bold;
 }
 
 /* Responsive Design */

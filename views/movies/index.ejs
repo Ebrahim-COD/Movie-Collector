@@ -1,37 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Movies List</title>
-    <link rel="stylesheet" href="/stylesheet/style.css" />
-  </head>
-  <body>
-    <div class="container">
-      <nav class="nav">
-        <a href="/auth/sign-out" class="button">Sign-Out</a>
-        <a href="/users/<%= user._id %>/movies/new" class="button"
-          >Add New Movies</a
-        >
-      </nav>
-      <header>
-        <h1>My Movie Collection</h1>
-      </header>
-      <main class="movie-list">
-        <% movies.forEach(movie => { %>
-        <a
-          href="/users/<%= user._id %>/movies/<%= movie._id %>"
-          class="movie-item"
-        >
-          <div class="movie-content">
-            <p><strong><%= movie.title %></strong></p>
-            <span class="watched-status"
-              ><%= movie.watched ? 'Watched' : 'Not Watched' %></span
-            >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Movies List</title>
+  <link rel="stylesheet" href="/stylesheet/style.css" />
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <a href="/auth/sign-out" class="button">Sign-Out</a>
+      <a href="/users/<%= user._id %>/movies/new" class="button">Add New Movie</a>
+    </nav>
+    <header>
+      <h1>My Movie Collection</h1>
+    </header>
+    <main class="movie-list">
+      <% movies.forEach(movie => { %>
+      <a href="/users/<%= user._id %>/movies/<%= movie._id %>" class="movie-item">
+        <div class="movie-content">
+          <% if (movie.image) { %>
+            <img src="/uploads/<%= movie.image %>" alt="<%= movie.title %>" class="movie-image"/>
+          <% } %>
+          <div class="movie-info">
+            <p class="movie-title"><%= movie.title %></p>
+            <span class="watched-status">
+              <%= movie.watched ? 'Watched' : 'Not Watched' %>
+            </span>
           </div>
-        </a>
-        <% }) %>
-      </main>
-    </div>
-  </body>
+        </div>
+      </a>
+      <% }) %>
+    </main>
+  </div>
+</body>
 </html>

@@ -16,7 +16,7 @@
         <h1>Add Movie</h1>
       </header>
       <main>
-        <form action="/users/<%= user._id %>/movies" method="POST">
+        <form action="/users/<%= user._id %>/movies" method="POST" enctype="multipart/form-data">
           <label for="title">Title: </label>
           <input
             type="text"
@@ -38,7 +38,7 @@
           <br />
 
           <label for="genre">Genre: </label>
-          <select name="genre" id="genre" required>
+            <select name="genre" id="genre" required>
             <option value="">Select Genre</option>
             <option value="Action">Action</option>
             <option value="Comedy">Comedy</option>
@@ -49,8 +49,13 @@
             <option value="Thriller">Thriller</option>
             <option value="Fantasy">Fantasy</option>
             <option value="Crime">Crime</option>
+            <option value="Adventure">Adventure</option>
+            <option value="Animation">Animation</option>
+            <option value="Family">Family</option>
+            <option value="Mystery">Mystery</option>
+            <option value="Western">Western</option>
             <option value="Other">Other</option>
-          </select>
+            </select>
           <br />
 
           <label for="year">Release Year: </label>
@@ -61,6 +66,10 @@
             placeholder="Year"
             required
           />
+          <br />
+
+          <label for="image">Movie Picture: </label>
+          <input type="file" name="image" id="image" />
           <br />
 
           <label for="watched">Watched: </label>

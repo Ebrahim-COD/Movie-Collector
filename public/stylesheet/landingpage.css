@@ -1,0 +1,62 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('https://images.unsplash.com/photo-1478720568477-152d9b164e26?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Navigation Bar */
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 15px;
+    background: rgba(31, 31, 31, 0.8); /* Darker background for the nav bar */
+    border-bottom: 2px solid #333;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+nav a {
+    text-decoration: none;
+    color: #e0e0e0; /* Light text color for links */
+    margin: 0 20px;
+    font-size: 1em;
+    font-weight: 500;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav a:hover {
+    background-color: #3d3d3d; /* Slightly lighter background on hover */
+    color: #fff; /* White text color on hover */
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-top: 100px; /* Space for the fixed nav */
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+p {
+    color: #e0e0e0;
+}

@@ -29,11 +29,20 @@
       <section class="movie-list">
         <% user.movies.forEach(movie => { %>
         <div class="movie-item">
-          <h2><%= movie.title %></h2>
-          <p><strong>Director:</strong> <%= movie.director %></p>
-          <p><strong>Genre:</strong> <%= movie.genre %></p>
-          <p><strong>Year:</strong> <%= movie.year %></p>
-          <p><strong>Watched:</strong> <%= movie.watched ? 'Yes' : 'No' %></p>
+          <% if (movie.image) { %>
+          <img
+            src="/uploads/<%= movie.image %>"
+            alt="<%= movie.title %>"
+            class="movie-image"
+          />
+          <% } %>
+          <div class="movie-details">
+            <h2><%= movie.title %></h2>
+            <p><strong>Director:</strong> <%= movie.director %></p>
+            <p><strong>Genre:</strong> <%= movie.genre %></p>
+            <p><strong>Year:</strong> <%= movie.year %></p>
+            <p><strong>Watched:</strong> <%= movie.watched ? 'Yes' : 'No' %></p>
+          </div>
           <div class="movie-actions">
             <form
               action="/admin/<%= user._id %>/movies/<%= movie._id %>?_method=DELETE"

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/stylesheet/style.css" />
   </head>
   <body>
-    <div class="container">
+    <div class="container movie-details">
       <nav class="nav">
         <a href="/users/<%= user._id %>/movies" class="button">Home</a>
         <a href="/auth/sign-out" class="button">Sign-Out</a>
@@ -15,15 +15,23 @@
       <header>
         <h1>Movie Details</h1>
       </header>
-      <main>
-        <p>Title: <%= movie.title %></p>
-        <p>Director: <%= movie.director %></p>
-        <p>Genre: <%= movie.genre %></p>
-        <p>Release year: <%= movie.year %></p>
-        <p>Watched: <%= movie.watched ? 'Yes' : 'No' %></p>
+      <main class="movie-detail-main">
+        <div class="movie-detail-content">
+          <% if (movie.image) { %>
+            <img src="/uploads/<%= movie.image %>" alt="<%= movie.title %>" class="movie-detail-image" />
+          <% } %>
+          <div class="movie-detail-info">
+            <p><strong>Title:</strong> <%= movie.title %></p>
+            <p><strong>Director:</strong> <%= movie.director %></p>
+            <p><strong>Genre:</strong> <%= movie.genre %></p>
+            <p><strong>Release Year:</strong> <%= movie.year %></p>
+            <p><strong>Watched:</strong> <%= movie.watched ? 'Yes' : 'No' %></p>
+          </div>
+        </div>
         <form
           action="/users/<%= user._id %>/movies/<%= movie._id %>?_method=DELETE"
           method="POST"
+          class="movie-detail-form"
         >
           <button
             type="button"
